@@ -62,3 +62,13 @@ input[type="text"] {
     font-size: 1.6rem;
     font-weight: bold;
 }
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffffff63;
+    transition: 0.3s ease-out;
+}
