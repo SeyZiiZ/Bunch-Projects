@@ -1,0 +1,19 @@
+#citation-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#button {
+    margin-top: 20px;
+}
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+p {
+    font-size: 1.2rem;
+    color: #6c757d;
+}
