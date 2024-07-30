@@ -6,7 +6,7 @@ var i = 0;
 
 const getCitation = () => {
 
-    i <= 8 ? i++ : i = 0;
+    i <= citations.length - 2 ? i++ : i = 0;
 
     container.innerHTML = 
     `
