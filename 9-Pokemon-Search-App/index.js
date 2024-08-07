@@ -27,7 +27,7 @@ async function fetchData(userPokemon) {
         const data = await res.json();
         return data;
     } catch (err) {
-        console.log(`Error : ${err}`);
+        alert(`Failed to find the pokemon : ${err}`);
         return null;
     }
 }
@@ -37,10 +37,10 @@ const getData = (data) => {
         const { name, id, height, weight, types, stats, sprites } = data;
         const typesNames = types.map(typeInfo => typeInfo.type.name);
 
-        pokemonName.innerText = `Nom : ${name}`;
+        pokemonName.innerText = `Name : ${name}`;
         pokemonId.innerText = `Id : ${id}`;
-        pokemonWeight.innerText = `Poids : ${weight}`;
-        pokemonHeight.innerText = `Taille : ${height}`;
+        pokemonWeight.innerText = `Weight : ${weight}`;
+        pokemonHeight.innerText = `Height : ${height}`;
         pokemonType.innerText = `Type : ${typesNames}`;
         pokemonHP.innerText = `HP : ${stats[0].base_stat}`;
         pokemonAttack.innerText = `Attack : ${stats[1].base_stat}`;
