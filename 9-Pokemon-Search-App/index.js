@@ -2,6 +2,7 @@ const fetchDiv = document.getElementById("fetch-div");
 
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
+const randomPokemonButton = document.getElementById("random-button");
 const pokemonInfoDiv = document.querySelector(".pokemon-info");
 const pokemonName = document.getElementById("pokemon-name");
 const pokemonId = document.getElementById("pokemon-id");
@@ -16,10 +17,14 @@ const pokemonSpecialDefense = document.getElementById("special-defense");
 const pokemonSpeed = document.getElementById("speed");
 
 const getPokemonUser = (searchInputValue) => {
-    let searchInputCleaned = searchInputValue.toLowerCase().replace(/[^a-z]/g, '');
-    console.log(searchInputCleaned);
+    let searchInputCleaned = searchInputValue.toLowerCase().replace(/[^a-z0-9]/g, '');
     return searchInputCleaned;
 };
+
+const randomNumber = () => {
+    const maxNumber = 1025;
+    return Math.floor(Math.random() * maxNumber);
+}
 
 async function fetchData(userPokemon) {
     try {
@@ -27,7 +32,7 @@ async function fetchData(userPokemon) {
         const data = await res.json();
         return data;
     } catch (err) {
-        alert(`Failed to find the pokemon : ${err}`);
+        alert(`Impossible de trouver le pokémon : ${err}`);
         return null;
     }
 }
@@ -37,10 +42,10 @@ const getData = (data) => {
         const { name, id, height, weight, types, stats, sprites } = data;
         const typesNames = types.map(typeInfo => typeInfo.type.name);
 
-        pokemonName.innerText = `Name : ${name}`;
+        pokemonName.innerText = `Nom : ${name}`;
         pokemonId.innerText = `Id : ${id}`;
-        pokemonWeight.innerText = `Weight : ${weight}`;
-        pokemonHeight.innerText = `Height : ${height}`;
+        pokemonWeight.innerText = `Poids : ${weight}`;
+        pokemonHeight.innerText = `Taille : ${height}`;
         pokemonType.innerText = `Type : ${typesNames}`;
         pokemonHP.innerText = `HP : ${stats[0].base_stat}`;
         pokemonAttack.innerText = `Attack : ${stats[1].base_stat}`;
@@ -62,9 +67,15 @@ searchButton.addEventListener('click', async () => {
     const userInput = searchInput.value;
 
     const data = await fetchData(getPokemonUser(userInput));
-    console.log(data);
     getData(data);
 });
+
+randomPokemonButton.addEventListener("click", async () => {
+    const userInput = randomNumber();
+    console.log(userInput);
+    const data = await fetchData(userInput);
+    getData(data);
+})
 
 document.addEventListener("keydown", (event) => {
     if (event.key === 'Enter') {
