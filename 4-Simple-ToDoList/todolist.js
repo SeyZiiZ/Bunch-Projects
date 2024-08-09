@@ -145,7 +145,7 @@ function limiteDate () {
     let date = new Date();
     let yearDate = date.getFullYear();
     let dayDate = date.getDate();
-    let monthDate = date.getMonth() + 1;
+    let monthDate = date.getMonth();
     const fullDate = `${yearDate}-0${monthDate}-${dayDate}`;
     return fullDate;
 }
