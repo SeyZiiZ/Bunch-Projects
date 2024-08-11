@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     addButton.addEventListener('click', addToDo);
 
+    document.addEventListener("keydown", (event) => {
+        if (event.key === 'Enter' || event.key === 'enter') {
+            addButton.click();
+        }
+    })
+
     todoButtonToDo.addEventListener('click', () => {
         todoButtonToDo.classList.add('active');
         todoButtonsAll.classList.remove('active');
@@ -33,9 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
     function addToDo () {
         let inputValue = input.value.trim();
         let dateValue = date.value;
+        let dateValueCleaned = clearDate(dateValue);
+        let dateNowCleaned = clearDate(limiteDate());
 
         if (inputValue !== '' && dateValue !== '') {
-            if (limiteDate() > dateValue) {
+            if (dateNowCleaned > dateValueCleaned) {
                 spanError("The date you have chosen is wrong");
                 return
             } else {
@@ -47,7 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 addTaskToDom(task);
                 saveTask(task);
-                resetTask();  
+                resetTask();
+                console.log(dateValueCleaned);
+                console.log(dateNowCleaned);
             }
         } else {
             spanError("Enter all informations");
@@ -64,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <input type="checkbox" ${task.done ? 'checked' : ''} onclick="toggleTaskStatus(this)">
             <span>${task.text}</span>
             <span>${task.date}</span>
-            <button onclick="deleteToDo(this)">Delete ?</button>
+            <button onclick="deleteToDo(this)">Delete</button>
             `;
         toDoList.appendChild(li);
     }
@@ -117,6 +127,11 @@ document.addEventListener('DOMContentLoaded', function () {
     loadTasks();
 });
 
+function clearDate(n) {
+    const regex = n.replace(/[^0-9]/g, '');
+    return regex
+}
+
 function deleteToDo (button) {
     const li = button.parentElement;
     const taskId = li.getAttribute('data-id');
@@ -145,8 +160,8 @@ function limiteDate () {
     let date = new Date();
     let yearDate = date.getFullYear();
     let dayDate = date.getDate();
-    let monthDate = date.getMonth();
-    const fullDate = `${yearDate}-0${monthDate}-${dayDate}`;
+    let monthDate = date.getMonth() + 1;
+    const fullDate = `${yearDate}-0${monthDate}-${dayDate < 10 ? "0" + dayDate : dayDate}`;
     return fullDate;
 }
 
