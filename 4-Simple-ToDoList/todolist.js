@@ -56,8 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 addTaskToDom(task);
                 saveTask(task);
                 resetTask();
-                console.log(dateValueCleaned);
-                console.log(dateNowCleaned);
             }
         } else {
             spanError("Enter all informations");
