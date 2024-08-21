@@ -32,7 +32,7 @@ async function fetchData(userPokemon) {
         const data = await res.json();
         return data;
     } catch (err) {
-        alert(`Impossible de trouver le pokémon : ${err}`);
+        alert(`Impossible to find the pokemon(s) : ${err}`);
         return null;
     }
 }
