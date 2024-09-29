@@ -1,0 +1,76 @@
+$color_1: #333;
+$color_2: white;
+$color_3: #555;
+$font-family_1: Arial, sans-serif;
+$background-color_1: #28a745;
+$background-color_2: #218838;
+
+body {
+	font-family: $font-family_1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	background: #f0f0f0;
+}
+.hidden {
+	display: none;
+}
+.restart {
+	margin-top: 20px;
+}
+.container {
+	text-align: center;
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+	color: $color_1;
+	font-size: 3rem;
+	margin: 0;
+}
+.p-container {
+	font-size: 1.5rem;
+}
+.input-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+}
+.input-field {
+	padding: 10px;
+	font-size: 16px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+.btn {
+	padding: 10px 20px;
+	font-size: 16px;
+	border: none;
+	background-color: $background-color_1;
+	color: $color_2;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	&:hover {
+		background-color: $background-color_2;
+	}
+}
+.div-container {
+	padding-bottom: 30px;
+}
+.chanceContainer {
+	font-size: 1.5rem;
+}
+.chance-number {
+	display: block;
+	margin-top: 20px;
+	font-size: 18px;
+	color: $color_3;
+}
