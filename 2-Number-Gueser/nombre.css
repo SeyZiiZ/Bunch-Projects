@@ -1,12 +1,5 @@
-$color_1: #333;
-$color_2: white;
-$color_3: #555;
-$font-family_1: Arial, sans-serif;
-$background-color_1: #28a745;
-$background-color_2: #218838;
-
 body {
-	font-family: $font-family_1;
+	font-family: Arial, sans-serif;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -29,7 +22,7 @@ body {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 h1 {
-	color: $color_1;
+	color: #333;
 	font-size: 3rem;
 	margin: 0;
 }
@@ -53,14 +46,14 @@ h1 {
 	padding: 10px 20px;
 	font-size: 16px;
 	border: none;
-	background-color: $background-color_1;
-	color: $color_2;
+	background-color: #28a745;
+	color: white;
 	border-radius: 5px;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
-	&:hover {
-		background-color: $background-color_2;
-	}
+}
+.btn:hover {
+	background-color: #218838;
 }
 .div-container {
 	padding-bottom: 30px;
@@ -72,5 +65,5 @@ h1 {
 	display: block;
 	margin-top: 20px;
 	font-size: 18px;
-	color: $color_3;
+	color: #555;
 }
